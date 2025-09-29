@@ -6,10 +6,14 @@ import { Button } from '@ui/components/Button';
 import { theme } from '@ui/styles/theme';
 import { styles } from './styles';
 
+import { AuthStackNavigationProps } from '@app/navigation/AuthStack';
+import { useNavigation } from '@react-navigation/native';
 import greetinsVetor from '@ui/assets/greetings/greetins.png';
 import { Logo } from '@ui/components/logo';
 
 export function Greetings() {
+  const navigation = useNavigation<AuthStackNavigationProps>();
+
   return (
     <View style={styles.container}>
       <SafeAreaView style={styles.content}>
@@ -47,13 +51,21 @@ export function Greetings() {
         </View>
 
         <View style={styles.ctaContent}>
-          <Button variant="primary">Criar conta</Button>
+          <Button variant="secondary">Criar conta</Button>
 
           <View style={styles.signInContainer}>
             <AppText color={theme.colors.neutral[300]}>
               Já tem uma conta?
             </AppText>
-            <TouchableOpacity accessibilityRole="button">
+
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate('SignIn', {
+                  fromGreetins: '',
+                })
+              }
+              accessibilityRole="button"
+            >
               <AppText
                 color={theme.colors.primary[300]}
                 weight="medium"

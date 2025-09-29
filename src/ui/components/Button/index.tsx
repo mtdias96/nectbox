@@ -15,7 +15,11 @@ export function Button({
   ...props
 }: IButtonProps) {
   const childEl =
-    typeof children === 'string' ? <AppText>{children}</AppText> : children;
+    typeof children === 'string' ? (
+      <AppText style={buttonStyles({ variant })}>{children}</AppText>
+    ) : (
+      children
+    );
 
   return (
     <View style={styles.wrapper}>
