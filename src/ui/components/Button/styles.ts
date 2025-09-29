@@ -17,8 +17,8 @@ export const buttonStyles = createVariants({
   variants: {
     variant: {
       primary: {
-        backgroundColor: theme.colors.primary['400'],
-        textDecorationColor: 'yallow',
+        backgroundColor: theme.colors.primary['900'],
+        color: theme.colors.white,
       },
       secondary: {
         backgroundColor: theme.colors.neutral[400],
@@ -26,12 +26,12 @@ export const buttonStyles = createVariants({
     },
     size: {
       default: {
-        paddingHorizontal: 24,
-        paddingVertical: 14,
+        paddingHorizontal: 8,
+        paddingVertical: 8.5,
       },
       icon: {
-        width: 48,
-        height: 48,
+        width: 50,
+        height: 50,
       },
     },
 
